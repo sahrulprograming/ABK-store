@@ -21,7 +21,7 @@
             <?php foreach ($orders as $order) : ?>
                 <?php $total = total_price_order($this->order->detail_order($order->invoice)); ?>
                 <tr>
-                    <td><?= $order->invoice; ?></td>
+                    <td onclick="window.location.href = '<?= base_url('admin/order/detail_order/' . $order->invoice); ?>'"><?= $order->invoice; ?></td>
                     <td><?= $order->first_name . ' ' . $order->last_name; ?></td>
                     <td class="text-center">
                         Rp <?= rupiah($total) ?>
@@ -51,7 +51,6 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>

@@ -37,4 +37,12 @@ class Order extends CI_Controller
         $this->session->set_flashdata('alert', alert_admin('success', 'Pembayaran berhasil di batalkan'));
         redirect('admin/order');
     }
+    public function detail_order($invoice)
+    {
+        $data['orders'] = $this->order->detail_order($invoice);
+        $data['title'] = 'Admin Data Orders';
+        $this->load->view('layouts/admin/head', $data);
+        $this->load->view('admin/order/show');
+        $this->load->view('layouts/admin/footer');
+    }
 }

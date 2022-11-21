@@ -15,6 +15,7 @@ class Order_model extends CI_Model
     public function detail_order($invoice)
     {
         $this->db->join('products', 'order_products.product_id = products.product_id');
+        $this->db->join('categories', 'products.product_cat = categories.cat_id');
         return $this->db->get_where('order_products', ['invoice' => $invoice])->result();
     }
     public function confirm($invoice)
